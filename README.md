@@ -1,29 +1,46 @@
-# Playwright E-Commerce Checkout and Payment Process
+# JUMIA Automation Testing Framework
 
 ## Overview
 
-This project contains Playwright tests for automating the checkout and payment process on an e-commerce platform (JUMIA). 
-The tests are designed to validate the end-to-end functionality of the checkout process and ensure a smooth payment experience.
+This project contains an automation testing framework built using Playwright for testing an e-commerce website (JUMIA). The test script automates the following scenario:
 
-THE OTP IS FETCHED DIRECTLY FROM THE EMAIL 
-GITHUB ACTION IS USED FOR THE CI/CD 
+- Navigate to the JUMIA website.
+- Search for a specific product.
+- Add the product to the cart.
+- Proceed to checkout.
+
+The framework includes assertions for each step, handles dynamic elements, and provides robust logging and reporting. It also features a retry mechanism for flaky tests and is integrated with GitHub Actions for CI/CD.
+
+
+## Features
+- Search for Product: Automates searching for a specific product on the e-commerce platform.
+- Add to Cart: Adds the product to the cart.
+- Checkout Process: Automates the checkout process, including validating the cart contents and ensuring successful checkout.
+- Retry Mechanism: Automatically retries flaky tests to improve stability.
+- Logging & Reporting: Logs detailed information during test execution, including pass/fail status and error messages.
+- CI/CD Integration: The script is integrated with GitHub Actions for continuous integration and deployment.
 
 ## Project Structure
 
-- `ecommerce.spec.js`: Contains the Playwright tests.
-- `testData.json`: Stores test data such as search terms.
-- `.env`: Holds environment variables required for the tests (e.g., phone number, password).
-- `test-log.txt`: Logs messages from the test runs.
+- `allure-results`: Contains Allure test results and reports.
+- `tests`:Test scripts folder.
+- `ecommerce.spec.js`: Playwright test script for e-commerce checkout.
+- `utils`: Utility scripts for supporting tasks (e.g., email OTP fetching).
+- `utils`: Playwright configuration file.
+- `README.md `: This documentation.
 
 ## Prerequisites
 
 Before running the tests, ensure you have the following installed:
 
-- Node.js (version 16.x or later)
-- Playwright (for test automation)
-- dotenv (for managing environment variables)
-- fs (for file system operations)
-- path (for file path operations)
+- **Node.js** (version 16.x or later)
+- **Playwright** (for web automation)
+- **Allure** (for test reporting)
+
+To install dependencies, run:
+
+```bash
+npm install
 
 ## Setup
 
@@ -71,7 +88,7 @@ Ensure `testData.json` is present in the root directory with the required struct
 
 ```json
 {
-  "searchTerms": ["laptop", "smartphone"]
+  "searchTerms": ["iphone 15", "samsung galaxy s21", "oneplus 9"]
 }
 ```
 
